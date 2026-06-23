@@ -16,17 +16,13 @@
 
 ## App Functions
 1. Customer (the user with the customer role):
-    1. Create/modify customer profile - <how will your app do this?>
-    2. View available services - <how will your app do this?>.
-    3. Book appointments - <how will your app do this?>.
-    4. Search/filter through available barbers - <how will your app do this?>.
+    1. Create/modify customer profile - Register as a customer 
+    2. View available services - Browse through the services on a barber's profile 
+    3. Book appointments - Schedule an appointment with a selected barber 
+    4. Search/filter through available barbers - Browse suitable barbers through filters 
+    5. Write Reviews - Leave feedback on their experience 
 2. Provider (the user with the provider role):
     1. Create/modify/remove provider profile - .
     2. Create services - .
     3. View customer statistics -  .
     4. Reply to reviews - .
-3. SysAdmin (the user with the admin role if applicable):
-    1. Manage user access - .
-    2. Moderate services - .
-    3. Moderate reviews - .
-    4. View usage statistics - .
