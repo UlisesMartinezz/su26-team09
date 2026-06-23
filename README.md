@@ -1,22 +1,26 @@
 ## Title
-> Your project title
+> Team 09 SU26 Project 
 
 ## Team Members
-> Bryan
+> Team Member #1: Ulises Martinez-Zuniga 
 
-> Ulises
+> Team Member #2: Bryan Martinez-Bautista 
 
 ## Description 
-> A brief description of your product. Include a brief summary for the services provided by the app.
-> Possible questions to answer here:  What is the motivation for the app? What are the goals of the app/ What problem will the app solve?
->
+> ClipzCutz provides an enviroment for clients and barbers to connect. Clients will able to select a barber that best suits their needs through a series of filters, i.e. location, prices, services provided, etc. Clients will also be able to leave reviews and rate their experience. Barbers will to demonstrate the work and services they provide. 
+
+> The motivation for the app is to connect potiential customers with barbers that fit their needs.
+
+> The problem the app will solve is not being able to find barbers in your area. The app will solve this by providing a centralized place where customers can find barbers in their area that meets their needs. 
+
 
 ## App Functions
 1. Customer (the user with the customer role):
-    1. Create/modify customer profile - <how will your app do this?>
-    2. View available services - <how will your app do this?>.
-    3. Subscribe to available services - <how will your app do this?>.
-    4. Write reviews for subscribed services - <how will your app do this?>.
+    1. Create/modify customer profile - Register as a customer 
+    2. View available services - Browse through the services on a barber's profile 
+    3. Book appointments - Schedule an appointment with a selected barber 
+    4. Search/filter through available barbers - Browse suitable barbers through filters 
+    5. Write Reviews - Leave feedback on their experience 
 2. Provider (the user with the provider role):
     1. Create/Modify/Remove Provider Profile – Providers can create a profile by adding their name, email address, and phone number. They can also upload a profile picture and specify their location.
     2. Upload Pictures of Their Work – Providers can upload pictures of their work and categorized them based on type of haircut.
@@ -24,3 +28,4 @@
     4. Reply to Reviews – Providers can view customer reviews and respond to them.
     5. Manage Appointment Schedule – Providers can manage their upcoming appointments, set their availability, and mark days they are unavailable.
     6. Communicate with Customers – Providers will be able to communicate directly with customers through an in-app messaging system.
+
