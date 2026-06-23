@@ -21,8 +21,3 @@
     3. Book appointments - Schedule an appointment with a selected barber 
     4. Search/filter through available barbers - Browse suitable barbers through filters 
     5. Write Reviews - Leave feedback on their experience 
-2. Provider (the user with the provider role):
-    1. Create/modify/remove provider profile - .
-    2. Create services - .
-    3. View customer statistics -  .
-    4. Reply to reviews - .
