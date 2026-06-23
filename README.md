@@ -21,3 +21,10 @@
     3. Book appointments - Schedule an appointment with a selected barber 
     4. Search/filter through available barbers - Browse suitable barbers through filters 
     5. Write Reviews - Leave feedback on their experience 
+2. Provider (the user with the provider role):
+    1. Create/Modify/Remove Provider Profile – Providers can create a profile by adding their name, email address, and phone number. They can also upload a profile picture and specify their location.
+    2. Upload Pictures of Their Work – Providers can upload pictures of their work and categorized them based on type of haircut.
+    3. Publish Services Provided – Providers can add the services they offer and set prices.
+    4. Reply to Reviews – Providers can view customer reviews and respond to them.
+    5. Manage Appointment Schedule – Providers can manage their upcoming appointments, set their availability, and mark days they are unavailable.
+    6. Communicate with Customers – Providers will be able to communicate directly with customers through an in-app messaging system.
