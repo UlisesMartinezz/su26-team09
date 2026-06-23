@@ -16,11 +16,10 @@
 
 ## App Functions
 1. Customer (the user with the customer role):
-    1. Create/modify customer profile - Register as a customer 
-    2. View available services - Browse through the services on a barber's profile 
-    3. Book appointments - Schedule an appointment with a selected barber 
-    4. Search/filter through available barbers - Browse suitable barbers through filters 
-    5. Write Reviews - Leave feedback on their experience 
+    1. Create/modify customer profile - <how will your app do this?>
+    2. View available services - <how will your app do this?>.
+    3. Subscribe to available services - <how will your app do this?>.
+    4. Write reviews for subscribed services - <how will your app do this?>. 
 2. Provider (the user with the provider role):
     1. Create/Modify/Remove Provider Profile – Providers can create a profile by adding their name, email address, and phone number. They can also upload a profile picture and specify their location.
     2. Upload Pictures of Their Work – Providers can upload pictures of their work and categorized them based on type of haircut.
