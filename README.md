@@ -1,7 +1,8 @@
 ## Title
-> Your project title
+> Team 09 SU26 Project 
 
 ## Team Members
-> Bryan
+> Team Member #1: Ulises Martinez-Zuniga 
 
-> Ulises
+> Team Member #2: Bryan Martinez-Bautista 
+
