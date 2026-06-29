@@ -13,15 +13,15 @@
 **Vision.** ClipzConnect provides an enviroment for clients and barbers to connect. Clients will able to select a barber that best suits their needs through a series of filters, i.e. location, prices, services provided, etc. Clients will also be able to leave reviews and rate their experience. Barbers will to demonstrate the work and services they provide.
 
 **Glossary** Terms used in the project
-- **Barber:** The Barber professional who provides Haircuting services to customers.
-- **Customer:** A person seeking haitcut services.
+- **Barber:** A professional who provides Haircuting & hair-related services to customers.
+- **Customer:** A person seeking haircut services.
 - **Profile:** A collection of information about a user, including personal details, and preferences.
 - **Services:** The haircut services provided by a barber.
 - **Session:** A scheduled appointment between a customer and a barber for haircut.
 
 **Primary Users / Roles.**
-- **Customer** - Find barbers aligned with their constraints.
-- **Barber** — Attract clients and manage services.
+- **Customer** - Find barbers aligned with their interests and needs.
+- **Barber** — Attract clients, publish services and manage profile.
 
 **Scope (this semester).**
 - User profiles (customers & barbers)
@@ -90,18 +90,18 @@
       Then the review should be saved and visible to other customers
   ```
 
-### 2.2 Provider (Barbers) Stories
+### 2.2 Provider (Barber) Stories
 
-- **US-5 - Create and update trainer profile**
-  _Story:_ As a trainer, I want to create and update my profile, so that I can attract clients.
+- **US-5 - View and manage appointments**
+  _Story:_ As a provider, I want to be able to view and manage my appointments.
 
   _Acceptance:_
   ```gherkin
-  Scenario: Create and update trainer profile
-    Given I do not have a profile
-    When I provide my details and submit the form
-    Then my profile should be created
-    And the profile should be visible to customers
+  Scenario: View and manage appointments
+    Given I can not view my appointmnets
+    When I click on 'Manage Appointments'
+    Then my appointments will become visible to me
+    And I will be able to view past, current and future appointments. As well as modify them to my needs.
   ```
 
 - **US-6 - Define services and pricing**
@@ -129,6 +129,30 @@
   ```
 
 - **US-8 - View customer statistics**
+
+  _Story:_ As a trainer, I want to view customer statistics so that I can tailor my coaching.
+
+  _Acceptance:_
+  ```gherkin
+  Scenario: View customer statistics
+    Given I am logged in as a trainer
+    When I access the dashboard
+    Then I should see relevant data about my customers' progress and engagement
+  ```
+
+  - **US-9 - View customer statistics**
+
+  _Story:_ As a trainer, I want to view customer statistics so that I can tailor my coaching.
+
+  _Acceptance:_
+  ```gherkin
+  Scenario: View customer statistics
+    Given I am logged in as a trainer
+    When I access the dashboard
+    Then I should see relevant data about my customers' progress and engagement
+  ```
+
+  - **US-10 - View customer statistics**
 
   _Story:_ As a trainer, I want to view customer statistics so that I can tailor my coaching.
 
