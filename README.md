@@ -7,7 +7,7 @@
 > Team Member #2: Bryan Martinez-Bautista 
 
 ## Description 
-> ClipzCutz provides an enviroment for clients and barbers to connect. Clients will able to select a barber that best suits their needs through a series of filters, i.e. location, prices, services provided, etc. Clients will also be able to leave reviews and rate their experience. Barbers will to demonstrate the work and services they provide. 
+> ClipzConnect provides an enviroment for clients and barbers to connect. Clients will able to select a barber that best suits their needs through a series of filters, i.e. location, prices, services provided, etc. Clients will also be able to leave reviews and rate their experience. Barbers will to demonstrate the work and services they provide. 
 
 > The motivation for the app is to connect potiential customers with barbers that fit their needs.
 

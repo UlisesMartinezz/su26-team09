@@ -1,7 +1,7 @@
 
 # Requirements – FitMatch
 
-**Project Name:** ClipsConnect \
+**Project Name:** ClipzConnect \
 **Team:** Your name - Provider, Bryan Martinez-Bautista - Customer \
 **Course:** CSC 340\
 **Version:** 1.0\
@@ -10,7 +10,7 @@
 ---
 
 ## 1. Overview
-**Vision.** ClipzCutz provides an enviroment for clients and barbers to connect. Clients will able to select a barber that best suits their needs through a series of filters, i.e. location, prices, services provided, etc. Clients will also be able to leave reviews and rate their experience. Barbers will to demonstrate the work and services they provide.
+**Vision.** ClipzConnect provides an enviroment for clients and barbers to connect. Clients will able to select a barber that best suits their needs through a series of filters, i.e. location, prices, services provided, etc. Clients will also be able to leave reviews and rate their experience. Barbers will to demonstrate the work and services they provide.
 
 **Glossary** Terms used in the project
 - **Barber:** The Barber professional who provides Haircuting services to customers.
