@@ -44,7 +44,7 @@
 ### 2.1 Customer Stories
 - **US‑1 - Register & manage profile**
 
-  _Story:_ As a customer, I want to create a fitness profile, so that trainers can understand my goals and constraints.
+  _Story:_ As a customer, I want to create a profile, so that I can Book appointments with a barber and manage my account.
 
   _Acceptance:_
   ```gherkin
@@ -54,40 +54,53 @@
     Then I should be successfully registered and logged in
   ```
 
-- **US‑2 - Browse trainers by goal category**
+- **US‑2 - Browse barbers with filter**
 
-  _Story:_ As a customer, I want to browse trainers by goal category so that I can quickly find relevant matches.
+  _Story:_ As a customer, I want to be able to filter when browesing for barbers.
 
   _Acceptance:_
   ```gherkin
-  Scenario: Browse trainers by goal category
+  Scenario: Browse for barbers with filter
     Given I am logged in as a customer
-    When I select a goal category
-    Then I should see a list of trainers who specialize in that category
+    When I select a filter option
+    Then I should see a list of barbers who provide those services
   ```
 
-- **US-3 - Book a training session**
+- **US-3 - Book an appointment with a barber**
 
-  _Story:_ As a customer, I want to book a training session with a trainer so that I can receive personalized guidance.
+  _Story:_ As a customer, I want to book an appointment with a barber who meets my needs.
 
   _Acceptance:_
   ```gherkin
-  Scenario: Book a training session
+  Scenario: Book a haircut appointment
     Given I am logged in as a customer
-    When I select a trainer and choose an available time slot
+    When I select a barber and choose an available time slot
     Then I should receive a confirmation of the booked session
   ```
 
-- **US-4 - Write a review after a session**
+- **US-4 - Write a review after an appointment**
 
-    _Story:_ As a customer, I want to write a review after a session so that others can benefit from my experience.
+    _Story:_ As a customer, I want to write a review after an appointment so that others can see the
+    quality of the service.
 
     _Acceptance:_
   ```gherkin
-    Scenario: Write a review after a session
-      Given I have completed a training session with a trainer
-      When I submit a review for that session
+    Scenario: Write a review after an appointment
+      Given I have finished with my haircut appointment
+      When I submit a review for that appointment
       Then the review should be saved and visible to other customers
+  ```
+
+- **US-5 - View appointment history**
+
+    _Story:_ As a customer, I want to view my appointment history so that I can verify past billing or scheduling issue.
+
+    _Acceptance:_
+  ```gherkin
+    Scenario: View appointment history to verify billing
+      Given I have finished with my haircut appointment
+      When I check my appointment log
+      Then I should see the billing details for my recent and previous appointments
   ```
 
 ### 2.2 Provider (Barber) Stories
