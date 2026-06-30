@@ -105,7 +105,7 @@
 
 ### 2.2 Provider (Barber) Stories
 
-- **US-5 - View and manage appointments**
+- **US-6 - View and manage appointments**
   _Story:_ As a provider, I want to be able to view and manage my appointments.
 
   _Acceptance:_
@@ -114,67 +114,55 @@
     Given I can not view my appointmnets
     When I click on 'Manage Appointments'
     Then my appointments will become visible to me
-    And I will be able to view past, current and future appointments. As well as modify them to my needs.
+    And I will be able to view past, current and future appointments. I will be able to modify them to my needs.
   ```
 
-- **US-6 - Define services and pricing**
+- **US-7 - Define services and pricing**
 
-  _Story:_ As a trainer, I want to define my services and pricing, so that customers understand my offerings.
+  _Story:_ As a provider, I want to be able to post pictures of my work. 
 
   _Acceptance:_
   ```gherkin
-  Scenario: Define services and pricing
-    Given I am logged in as a trainer
-    When I add my services and set pricing
-    Then the services should be saved and visible to customers
+  Scenario: Post pictures of haircuts and other hair services
+    Given I am logged in as a provider
+    When I click upload and/or take picture
+    Then picture will be available for customers to view on my provider page
   ```
 
-- **US-7 - Respond to reviews**
+- **US-8 - Respond to reviews**
 
-  _Story:_ As a trainer, I want to respond to reviews, so that I can engage with clients.
+  _Story:_ As a provider, I want to be able to manage my availability
+
+  _Acceptance:_
+  ```gherkin
+  Scenario: Edit the times/dates I am available
+    Given I am logged in as a provider
+    When I click to 'availability'
+    Then I should be able to edit the times/dates I am available 
+  ```
+
+- **US-9 - View customer statistics**
+
+  _Story:_ As a provider, I want to be able to reply to reviews
 
   _Acceptance:_
   ```gherkin
   Scenario: Respond to reviews
-    Given I am logged in as a trainer
-    When I receive a review for one of my sessions
+    Given I am logged in as a provider
+    When I receive a review for one of my services
     Then I should be able to submit a response to the review
-  ```
-
-- **US-8 - View customer statistics**
-
-  _Story:_ As a trainer, I want to view customer statistics so that I can tailor my coaching.
-
-  _Acceptance:_
-  ```gherkin
-  Scenario: View customer statistics
-    Given I am logged in as a trainer
-    When I access the dashboard
-    Then I should see relevant data about my customers' progress and engagement
-  ```
-
-  - **US-9 - View customer statistics**
-
-  _Story:_ As a trainer, I want to view customer statistics so that I can tailor my coaching.
-
-  _Acceptance:_
-  ```gherkin
-  Scenario: View customer statistics
-    Given I am logged in as a trainer
-    When I access the dashboard
-    Then I should see relevant data about my customers' progress and engagement
   ```
 
   - **US-10 - View customer statistics**
 
-  _Story:_ As a trainer, I want to view customer statistics so that I can tailor my coaching.
+  _Story:_ As a provider, I want to define my services and pricing, so that customers understand my offerings..
 
   _Acceptance:_
   ```gherkin
-  Scenario: View customer statistics
-    Given I am logged in as a trainer
+  Scenario: Publish services and prices
+    Given I am logged in as a provider
     When I access the dashboard
-    Then I should see relevant data about my customers' progress and engagement
+    Then I should be able to update services/prices
   ```
 ---
 
