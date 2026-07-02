@@ -1,3 +1,7 @@
+/* =========================
+   GLOBAL
+========================= */
+
 * {
     margin: 0;
     padding: 0;
@@ -10,7 +14,10 @@ body {
     color: #222;
 }
 
-/* ================= NAVBAR ================= */
+/* =========================
+   NAVBAR
+========================= */
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -30,9 +37,9 @@ body {
     width: 45px;
     height: 45px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
-/* ONLY HOME + SIGN IN */
 .nav-right a {
     margin-left: 15px;
     text-decoration: none;
@@ -49,9 +56,13 @@ body {
     height: 40px;
     border-radius: 50%;
     margin-left: 10px;
+    object-fit: cover;
 }
 
-/* ================= HERO ================= */
+/* =========================
+   HERO
+========================= */
+
 .hero {
     text-align: center;
     padding: 70px 20px;
@@ -59,7 +70,19 @@ body {
     color: white;
 }
 
-/* ================= SECTIONS ================= */
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
 .section {
     max-width: 1100px;
     margin: auto;
@@ -67,7 +90,14 @@ body {
     text-align: center;
 }
 
-/* ================= BARBERS ================= */
+.section h2 {
+    margin-bottom: 25px;
+}
+
+/* =========================
+   FEATURED BARBERS
+========================= */
+
 .barber-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -78,7 +108,12 @@ body {
     background: white;
     padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    transition: .25s;
+}
+
+.barber-card:hover {
+    transform: translateY(-5px);
 }
 
 .barber-card img {
@@ -91,7 +126,28 @@ body {
     margin: 0 auto 10px auto;
 }
 
-/* ================= REVIEWS ================= */
+.barber-card h3 {
+    margin-bottom: 8px;
+}
+
+.barber-card button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #1a73e8;
+    color: white;
+    cursor: pointer;
+}
+
+.barber-card button:hover {
+    background: #0f5bd6;
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
 .review-grid {
     display: flex;
     justify-content: center;
@@ -100,28 +156,41 @@ body {
 }
 
 .review-card {
-    background: white;
-    padding: 15px;
-    border-radius: 12px;
     width: 280px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
 }
 
-/* ================= FEATURES ================= */
+.review-card h4 {
+    margin-top: 12px;
+    color: #1a73e8;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
 .feature-boxes {
     display: flex;
     justify-content: center;
-    gap: 15px;
+    gap: 20px;
     flex-wrap: wrap;
 }
 
 .feature {
     background: white;
-    padding: 15px 20px;
-    border-radius: 10px;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
 }
 
-/* ================= ACCOUNT ================= */
+/* =========================
+   ACCOUNT CARDS
+========================= */
+
 .account-cards {
     display: flex;
     justify-content: center;
@@ -130,11 +199,17 @@ body {
 }
 
 .account-card {
+    width: 250px;
     background: white;
     padding: 20px;
-    width: 250px;
     border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    transition: .25s;
+}
+
+.account-card:hover {
+    transform: translateY(-5px);
 }
 
 .account-card a {
@@ -147,7 +222,140 @@ body {
     border-radius: 8px;
 }
 
-/* ================= FOOTER ================= */
+.account-card a:hover {
+    background: #0f5bd6;
+}
+
+/* =========================
+   SIGN UP PAGE
+========================= */
+
+.signup-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px;
+}
+
+.signup-card {
+    width: 480px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.signup-card h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.signup-card p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   ACCOUNT TYPE
+========================= */
+
+.account-type {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.account-type label {
+    cursor: pointer;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.signup-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup-card input,
+.signup-card textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.signup-card textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.signup-card input:focus,
+.signup-card textarea:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 5px rgba(26,115,232,.25);
+}
+
+/* =========================
+   BARBER FIELDS
+========================= */
+
+#barberFields {
+    display: none;
+}
+
+/* =========================
+   CREATE ACCOUNT BUTTON
+========================= */
+
+.create-account-btn {
+    width: 100%;
+    padding: 13px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.create-account-btn:hover {
+    background: #0f5bd6;
+}
+
+/* =========================
+   SIGN IN LINK
+========================= */
+
+.signin-text {
+    text-align: center;
+    margin-top: 18px;
+    color: #666;
+}
+
+.signin-link {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signin-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
 footer {
     text-align: center;
     padding: 20px;
