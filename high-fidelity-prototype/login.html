@@ -3,56 +3,100 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>ClipzConnect Homepage</title>
+        <title>ClipzConnect - Login</title>
         <link rel="stylesheet" href="styles.css">
     </head>
 
     <body>
-        <!--Navigation Bar-->
-        <nav class="Nav-bar">
+
+        <!-- ================= NAVBAR ================= -->
+        <nav class="navbar">
+
             <div class="nav-left">
-                <img src="images/ClipzConnectLogo.jpg.jpeg" class="left-logo" alt="Logo">
+                <img src="images/ClipzConnectLogo.jpg.jpeg" class="logo" alt="Logo">
+                <h2>ClipzConnect</h2>
             </div>
 
             <div class="nav-right">
-                <ul class="nav-links">
-                    <li><a href="index.html">Home</a></li>
-                </ul>
-
-                <img src="images/profileIcon.jpg" class="right-logo" alt="Profile_Icon">
+                <a href="index.html">Home</a>
+                <a href="sign-up.html">Sign Up</a>
+                <img src="images/profileIcon.jpg" class="profile-icon" alt="Profile">
             </div>
+
         </nav>
 
-        <!-- LOGIN BOX -->
+        <!-- ================= LOGIN BOX ================= -->
         <main>
-            <div class="login-container">
 
-                <div class="login-box">
-                    <h2>Login</h2>
-                    <p>Sign in to book your next appointment.</p>
+            <div class="signup-section">
 
-                    <form>
-                        <label>Email</label>
-                        <input type="email" placeholder="Enter your email" required>
+                <div class="signup-card">
 
-                        <label>Password</label>
-                        <input type="password" placeholder="Enter your password" required>
+                    <h1>Sign In</h1>
 
-                        <button type="submit">Login</button>
+                    <p>Welcome back! Choose how you want to sign in.</p>
+
+                    <!-- Account Type Selection -->
+                    <div class="account-type">
+
+                        <label>
+                            <input type="radio" name="accountType" value="customer" checked>
+                            Customer
+                        </label>
+
+                        <label>
+                            <input type="radio" name="accountType" value="barber">
+                            Barber
+                        </label>
+
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="loginForm">
+
+                        <input type="email" placeholder="Email Address">
+                        <input type="password" placeholder="Password">
+
+                        <button type="submit" class="create-account-btn">
+                            Sign In
+                        </button>
+
+                        <p class="signin-text">
+                            Don’t have an account?
+                            <a href="sign-up.html" class="signin-link">Create Account</a>
+                        </p>
+
                     </form>
 
-                    <p class="login-text">
-                        Don’t have an account?
-                        <a href="sign-up.html">Sign up</a>
-                    </p>
                 </div>
 
             </div>
+
         </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <p class="footer-text">&copy; 2026 ClipzConnect. Created as an educational project.</p>
+        <!-- ================= FOOTER ================= -->
+        <footer>
+            <p>&copy; 2026 ClipzConnect. Created as an educational project.</p>
         </footer>
+
+        <script>
+            document.getElementById("loginForm").addEventListener("submit", function (e) {
+                e.preventDefault();
+
+                // Get selected account type
+                const accountType = document.querySelector('input[name="accountType"]:checked').value;
+
+                // Optional: store type so dashboard can use it later
+                localStorage.setItem("accountType", accountType);
+
+                // Redirect based on selection
+                if (accountType === "customer") {
+                    window.location.href = "customer-prototype/customerDashBoard.html";
+                } else if (accountType === "barber") {
+                    window.location.href = "provider-prototype/providerDashboard.html";
+                }
+            });
+            </script>
+
     </body>
 </html>
