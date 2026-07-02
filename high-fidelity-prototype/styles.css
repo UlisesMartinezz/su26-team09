@@ -366,3 +366,59 @@ footer {
 /* =========================
    PROVIDER DASHBOARD
 ========================= */
+.dashboard-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 35px;
+    color:#333
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Mobile dashboard card */
+@media (max-width: 650px){
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    transition: .25s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dashboard-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.dashboard-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    color: #1a73e8;
+}
