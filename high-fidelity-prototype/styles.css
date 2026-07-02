@@ -1,202 +1,156 @@
-/* =========================
-   GLOBAL STYLE
-========================= */
-body {
+* {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f2f2f2;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f6f7fb;
     color: #222;
 }
 
-/* =========================
-   NAVBAR
-========================= */
-.Nav-bar {
+/* ================= NAVBAR ================= */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 12px 25px;
-    background: #111;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
 }
 
-.left-logo {
-    width: 75px;
-    height: auto;
-}
-
-.nav-right {
+.nav-left {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 10px;
 }
 
-.nav-links {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-links a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.nav-links a:hover {
-    color: #00bcd4;
-}
-
-.right-logo {
+.logo {
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    object-fit: cover;
 }
 
-/* =========================
-   MAIN LAYOUT
-========================= */
-.main-content {
-    display: flex;
-    gap: 20px;
-    padding: 20px;
+/* ONLY HOME + SIGN IN */
+.nav-right a {
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
 }
 
-/* LEFT COLUMN */
-.home-left-box {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.nav-right a:hover {
+    color: #1a73e8;
 }
 
-/* RIGHT COLUMN */
-.home-right-boxes {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
 }
 
-/* =========================
-   CARD STYLE (ALL BOXES)
-========================= */
-.home-about-box,
-.home-barbers-box,
-.home-reviews-box,
-.home-account-box {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-
-/* =========================
-   TITLES & TEXT
-========================= */
-.home-subtitle {
-    margin-top: 0;
-    font-size: 20px;
-}
-
-.home-text {
-    font-size: 14px;
-    line-height: 1.6;
-    color: #444;
-}
-
-/* =========================
-   BARBER SLIDER
-========================= */
-.barber-slider {
-    position: relative;
-    height: 280px;
-}
-
-.barber-preview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+/* ================= HERO ================= */
+.hero {
     text-align: center;
-    opacity: 0;
-    animation: fadeBarber 6s infinite;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #1a73e8, #6aa9ff);
+    color: white;
 }
 
-.barber-preview img {
-    width: 120px;
-    height: 120px;
+/* ================= SECTIONS ================= */
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* ================= BARBERS ================= */
+.barber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.barber-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.barber-card img {
+    width: 140px;
+    height: 140px;
     border-radius: 50%;
     object-fit: cover;
-    margin-bottom: 10px;
+    object-position: center 15%;
+    display: block;
+    margin: 0 auto 10px auto;
 }
 
-.barber1 { animation-delay: 0s; }
-.barber2 { animation-delay: 3s; }
-
-@keyframes fadeBarber {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    40% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 0; }
+/* ================= REVIEWS ================= */
+.review-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
 }
 
-/* =========================
-   REVIEWS SLIDER
-========================= */
-.reviews-slider {
-    position: relative;
-    height: 160px;
+.review-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-.review-preview {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    opacity: 0;
-    animation: fadeReview 6s infinite;
+/* ================= FEATURES ================= */
+.feature-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
 }
 
-.review1 { animation-delay: 0s; }
-.review2 { animation-delay: 3s; }
-
-@keyframes fadeReview {
-    0% { opacity: 0; }
-    10% { opacity: 1; }
-    40% { opacity: 1; }
-    50% { opacity: 0; }
-    100% { opacity: 0; }
+.feature {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
 }
 
-/* =========================
-   ACCOUNT BUTTONS
-========================= */
-.btn {
+/* ================= ACCOUNT ================= */
+.account-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.account-card {
+    background: white;
+    padding: 20px;
+    width: 250px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.account-card a {
     display: inline-block;
-    padding: 10px 14px;
     margin-top: 10px;
-    margin-right: 8px;
-    background: #111;
+    padding: 10px 14px;
+    background: #1a73e8;
     color: white;
     text-decoration: none;
-    border-radius: 6px;
-    transition: 0.2s;
+    border-radius: 8px;
 }
 
-.btn:hover {
-    background: #00bcd4;
-}
-
-/* =========================
-   FOOTER
-========================= */
-.footer {
+/* ================= FOOTER ================= */
+footer {
     text-align: center;
-    padding: 15px;
-    margin-top: 20px;
-    background: #111;
-    color: white;
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #e8e8e8;
 }
