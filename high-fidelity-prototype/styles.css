@@ -1,0 +1,51 @@
+main {
+    padding: 20px;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+/* Left column */
+.home-left-box {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Right column */
+.home-right-boxes {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Left boxes */
+.home-about-box {
+    height: 250px;
+    border: 2px solid black;
+}
+
+.home-barbers-box {
+    height: 350px;
+    border: 2px solid black;
+}
+
+/* Right boxes */
+.home-reviews-box {
+    height: 150px;
+    border: 2px solid black;
+}
+
+.home-account-box {
+    height: 200px;
+    border: 2px solid black;
+}
+
+.home-login-box {
+    height: 150px;
+    border: 2px solid black;
+}
