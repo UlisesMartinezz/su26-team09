@@ -1,13 +1,69 @@
-main {
-    padding: 20px;
+/* =========================
+   GLOBAL STYLE
+========================= */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    color: #222;
 }
 
+/* =========================
+   NAVBAR
+========================= */
+.Nav-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    background: #111;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.left-logo {
+    width: 75px;
+    height: auto;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.nav-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-links a:hover {
+    color: #00bcd4;
+}
+
+.right-logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
 .main-content {
     display: flex;
     gap: 20px;
+    padding: 20px;
 }
 
-/* Left column */
+/* LEFT COLUMN */
 .home-left-box {
     flex: 2;
     display: flex;
@@ -15,7 +71,7 @@ main {
     gap: 20px;
 }
 
-/* Right column */
+/* RIGHT COLUMN */
 .home-right-boxes {
     flex: 1;
     display: flex;
@@ -23,29 +79,124 @@ main {
     gap: 20px;
 }
 
-/* Left boxes */
-.home-about-box {
-    height: 250px;
-    border: 2px solid black;
-}
-
-.home-barbers-box {
-    height: 350px;
-    border: 2px solid black;
-}
-
-/* Right boxes */
-.home-reviews-box {
-    height: 150px;
-    border: 2px solid black;
-}
-
+/* =========================
+   CARD STYLE (ALL BOXES)
+========================= */
+.home-about-box,
+.home-barbers-box,
+.home-reviews-box,
 .home-account-box {
-    height: 200px;
-    border: 2px solid black;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
-.home-login-box {
-    height: 150px;
-    border: 2px solid black;
+/* =========================
+   TITLES & TEXT
+========================= */
+.home-subtitle {
+    margin-top: 0;
+    font-size: 20px;
+}
+
+.home-text {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #444;
+}
+
+/* =========================
+   BARBER SLIDER
+========================= */
+.barber-slider {
+    position: relative;
+    height: 280px;
+}
+
+.barber-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    animation: fadeBarber 6s infinite;
+}
+
+.barber-preview img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.barber1 { animation-delay: 0s; }
+.barber2 { animation-delay: 3s; }
+
+@keyframes fadeBarber {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* =========================
+   REVIEWS SLIDER
+========================= */
+.reviews-slider {
+    position: relative;
+    height: 160px;
+}
+
+.review-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    animation: fadeReview 6s infinite;
+}
+
+.review1 { animation-delay: 0s; }
+.review2 { animation-delay: 3s; }
+
+@keyframes fadeReview {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    40% { opacity: 1; }
+    50% { opacity: 0; }
+    100% { opacity: 0; }
+}
+
+/* =========================
+   ACCOUNT BUTTONS
+========================= */
+.btn {
+    display: inline-block;
+    padding: 10px 14px;
+    margin-top: 10px;
+    margin-right: 8px;
+    background: #111;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: 0.2s;
+}
+
+.btn:hover {
+    background: #00bcd4;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+    background: #111;
+    color: white;
 }
