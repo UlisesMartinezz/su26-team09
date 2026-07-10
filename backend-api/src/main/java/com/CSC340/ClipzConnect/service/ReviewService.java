@@ -48,4 +48,8 @@ public class ReviewService {
         }
         return null;
     }
+
+    public void deleteReview(Long reviewId) {
+        reviewRepository.deleteById(reviewId);
+    }
 }
