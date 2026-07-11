@@ -31,7 +31,7 @@ The ClipzConnect backend exposes a RESTful API for the hair appointment booking 
 
 ## 2. UML Class Diagram
 
-![UML Class Diagram](//)
+![UML Class Diagram](Waiting team member UlisesMartinezz upload)
 
 ---
 
@@ -219,13 +219,13 @@ Example request body:
 
 ### 3.2 Barber Endpoints
 
-Waiting team member response
+Waiting team member UlisesMartinezz response
 
 ---
 
 ### 3.3 Barber Service Endpoints
 
-Waiting team member response
+Waiting team member UlisesMartinezz response
 
 ---
 
@@ -768,16 +768,17 @@ The API endpoints support the following SRS user stories and acceptance flows de
 
 | SRS use case                          | Related Endpoints                                                                                         |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| US-1 Register and manage profile      | `POST /api/customers`, `GET /api/customers/{id}`, `PUT /api/customers/{id}`, `DELETE /api/customers/{id}` |
-| US-2 Browse trainers by goal category | `GET /api/trainers` , `GET /api/trainers/specialty?query={goal}`                                          |
-| US-3 Book a training session          | `POST /api/training-sessions`                                                                             |
-| US-4 Write a review after a session   | `POST /api/reviews`                                                                                       |
+| US-1 Register and manage profile      | `POST /api/customers`, `GET /api/customers/{id}`, `GET /api/customers/email/{email}`, `PUT /api/customers/{id}`, `PUT /api/customers/{id}/personal-info`, `DELETE /api/customers/{id}` |
+| US-2 Browse barbers with filter | `GET /api/timeslots/barber/{barberId}`, `GET /api/timeslots/barber/{barberId}/available`                                          |
+| US-3 Book an appointment with a barber         | `GET /api/timeslots/barber/{barberId}/available`, `POST /api/hair-appointments`, `GET /api/hair-appointments/{id}`                                                                             |
+| US-4 Write a review after an appointment   | `POST /api/reviews`, `GET /api/reviews/{id}`, `PUT /api/reviews/{id}`, `DELETE /api/reviews/{id}`                                                                                       |
+| US-5 View appointment history  | `GET /api/hair-appointments/customer/{customerId}`, `GET /api/hair-appointments/{id}`   |
 
-### Provider use cases
+### Provider use cases - (Waiting team member UlisesMartinezz response)
 
 | SRS use case                           | Related Endpoints                                                                                      |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| US-5 Create and update trainer profile | `POST /api/trainers`, `GET /api/trainers/{id}`, `PUT /api/trainers/{id}`, `DELETE /api/trainers/{id}`  |
-| US-6 Define services and pricing       | `POST /api/training-services`, `PUT /api/training-services/{id}`, `DELETE /api/training-services/{id}` |
-| US-7 Respond to reviews                | `PUT /api/reviews/{id}`                                                                                |
-| US-8 View customer statistics          | `GET /api/trainers/{id}/statistics`                                                                    |
+| Waiting team member UlisesMartinezz response  | Waiting team member UlisesMartinezz response   |
+| Waiting team member UlisesMartinezz response        | Waiting team member UlisesMartinezz response  |
+| Waiting team member UlisesMartinezz response                 | Waiting team member UlisesMartinezz response                                                                                 |
+| Waiting team member UlisesMartinezz response           | Waiting team member UlisesMartinezz response                                                                    |
