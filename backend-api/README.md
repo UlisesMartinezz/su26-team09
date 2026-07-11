@@ -6,7 +6,7 @@
 **Base URL:**
 
 - local: http://localhost:8080
-- production: //
+- production: We were not able to deploy the application because the backend API tasks assigned to a team member were not completed before the deadline.
 
 ## Table of Contents
 
