@@ -1,0 +1,639 @@
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+body {
+    background: #f6f7fb;
+    color: #222;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 25px;
+    background: #ffffff;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.nav-right a {
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: 600;
+    color: #333;
+}
+
+.nav-right a:hover {
+    color: #1a73e8;
+}
+
+.profile-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-left: 10px;
+    object-fit: cover;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(135deg, #1a73e8, #6aa9ff);
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.section h2 {
+    margin-bottom: 25px;
+}
+
+/* =========================
+   FEATURED BARBERS
+========================= */
+
+.barber-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.barber-card {
+    background: white;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    transition: .25s;
+}
+
+.barber-card:hover {
+    transform: translateY(-5px);
+}
+
+.barber-card img {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center 15%;
+    display: block;
+    margin: 0 auto 10px auto;
+}
+
+.barber-card h3 {
+    margin-bottom: 8px;
+}
+
+.barber-card button {
+    margin-top: 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background: #1a73e8;
+    color: white;
+    cursor: pointer;
+}
+
+.barber-card button:hover {
+    background: #0f5bd6;
+}
+
+/* =========================
+   REVIEWS
+========================= */
+
+.review-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    width: 280px;
+    background: white;
+    padding: 18px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+.review-card h4 {
+    margin-top: 12px;
+    color: #1a73e8;
+}
+
+/* =========================
+   FEATURES
+========================= */
+
+.feature-boxes {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.feature {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    min-width: 180px;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+}
+
+/* =========================
+   ACCOUNT CARDS
+========================= */
+
+.account-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.account-card {
+    width: 250px;
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    transition: .25s;
+}
+
+.account-card:hover {
+    transform: translateY(-5px);
+}
+
+.account-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 14px;
+    background: #1a73e8;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.account-card a:hover {
+    background: #0f5bd6;
+}
+
+/* =========================
+   SIGN UP PAGE
+========================= */
+
+.signup-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 20px;
+}
+
+.signup-card {
+    width: 480px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,.08);
+}
+
+.signup-card h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.signup-card p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 25px;
+}
+
+/* =========================
+   ACCOUNT TYPE
+========================= */
+
+.account-type {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.account-type label {
+    cursor: pointer;
+}
+
+/* =========================
+   FORM
+========================= */
+
+.signup-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.signup-card input,
+.signup-card textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d8d8d8;
+    border-radius: 8px;
+    font-size: 15px;
+}
+
+.signup-card textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.signup-card input:focus,
+.signup-card textarea:focus {
+    outline: none;
+    border-color: #1a73e8;
+    box-shadow: 0 0 5px rgba(26,115,232,.25);
+}
+
+/* =========================
+   BARBER FIELDS
+========================= */
+
+#barberFields {
+    display: none;
+}
+
+/* =========================
+   CREATE ACCOUNT BUTTON
+========================= */
+
+.create-account-btn {
+    width: 100%;
+    padding: 13px;
+    background: #1a73e8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.create-account-btn:hover {
+    background: #0f5bd6;
+}
+
+/* =========================
+   SIGN IN LINK
+========================= */
+
+.signin-text {
+    text-align: center;
+    margin-top: 18px;
+    color: #666;
+}
+
+.signin-link {
+    color: #1a73e8;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.signin-link:hover {
+    text-decoration: underline;
+}
+
+/* =========================
+   DASHBOARD STATS 
+========================= */
+
+.dashboard-stats{
+    max-width:1100px;
+    margin:50px auto;
+    padding:0 20px;
+
+    display:grid;
+    grid-template-columns:repeat(3, 1fr);
+    gap:20px;
+}
+
+/* Card style matches homepage barber/account cards */
+.stat-card{
+    background:white;
+    border-radius:15px;
+
+    padding:40px 20px;
+
+    text-align:center;
+
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+
+    transition:0.3s;
+
+    cursor:pointer;
+}
+
+/* Hover effect like barber cards */
+.stat-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+/* Titles */
+.stat-card h3{
+    font-size:18px;
+    color:#333;
+    font-weight:600;
+}
+
+/* Optional subtitle effect if you add later */
+.stat-card p{
+    margin-top:10px;
+    font-size:14px;
+    color:#666;
+}
+
+/* Make them feel clickable (like buttons/cards) */
+.stat-card:active{
+    transform:scale(0.98);
+}
+
+/* Make the whole card clickable but keep styling */
+.card-link{
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px){
+    .dashboard-stats{
+        grid-template-columns:1fr;
+    }
+}
+
+/* =========================
+   UPCOMING APPOINTMENTS
+========================= */
+
+.section h2{
+    margin-top:40px;
+}
+
+.account-card{
+    margin: 20px auto;
+    max-width: 350px;
+}
+
+/* =========================
+   PROFILE PAGE
+========================= */
+
+.profile-section{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 20px;
+}
+
+.profile-card{
+    width:420px;
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,0.08);
+}
+
+.profile-card h1{
+    text-align:center;
+    margin-bottom:5px;
+}
+
+.profile-card p{
+    text-align:center;
+    color:#666;
+    margin-bottom:20px;
+}
+
+/* Form styling */
+.profile-card form{
+    display:flex;
+    flex-direction:column;
+}
+
+.profile-card label{
+    margin-top:12px;
+    margin-bottom:5px;
+    font-weight:600;
+    font-size:14px;
+}
+
+.profile-card input{
+    padding:12px;
+    border:1px solid #d8d8d8;
+    border-radius:8px;
+    font-size:14px;
+}
+
+.profile-card input:focus{
+    outline:none;
+    border-color:#1a73e8;
+    box-shadow:0 0 5px rgba(26,115,232,.25);
+}
+
+/* Save button */
+.profile-card button{
+    margin-top:20px;
+    padding:12px;
+    background:#1a73e8;
+    color:white;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.profile-card button:hover{
+    background:#0f5bd6;
+}
+
+/* =========================
+   APPOINTMENT HISTORY
+========================= */
+
+.history-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+    gap:20px;
+    max-width:1100px;
+    margin:0 auto;
+}
+
+.history-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.05);
+    transition:0.25s;
+}
+
+.history-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 20px rgba(0,0,0,0.1);
+}
+
+.history-card h3{
+    margin-bottom:10px;
+}
+
+.history-card p{
+    font-size:14px;
+    color:#555;
+    margin:5px 0;
+}
+
+.rating{
+    margin-top:10px;
+    color:#1a73e8;
+    font-size:16px;
+}
+
+/* Review button */
+.review-btn{
+    margin-top:12px;
+    padding:10px 12px;
+    border:none;
+    border-radius:8px;
+    background:#1a73e8;
+    color:white;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.review-btn:hover{
+    background:#0f5bd6;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: white;
+    border-top: 1px solid #e8e8e8;
+}
+
+/* ========================= 
+   PROVIDER DASHBOARD
+========================= */
+.dashboard-section {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.dashboard-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 35px;
+    color:#333
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Mobile dashboard card */
+@media (max-width: 650px){
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-card {
+    background: white;
+    padding: 25px;
+    border-radius: 15px;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 4px 12px rgba(0,0,0,.05);
+    transition: .25s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.dashboard-card h2 {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.dashboard-card p {
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0,0,0,.08);
+    color: #1a73e8;
+}
