@@ -13,6 +13,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.CSC340.ClipzConnect.entity.Customer;
 import com.CSC340.ClipzConnect.service.CustomerService;
+import com.CSC340.ClipzConnect.service.TimeslotService;
 
 //UIController
 @Controller
@@ -21,8 +22,11 @@ public class CustomerUIController {
     
     private final CustomerService customerService;
 
-    public CustomerUIController(CustomerService customerService){
+    private final TimeslotService timeslotService;
+
+    public CustomerUIController(CustomerService customerService, TimeslotService timeslotService){
         this.customerService = customerService;
+        this.timeslotService = timeslotService;
     }
 
     @GetMapping("/profile/{id}")
@@ -137,6 +141,18 @@ public class CustomerUIController {
             return "redirect:/index";
         }
         return "redirect:/index/" + id + "?error=true";
+    }
+
+
+    //Customer timeslot controller
+
+    @GetMapping("/available")
+    public String filterByAvailableTimeslots(Model model) {
+        model.addAttribute("timeSlots", timeslotService.getAvailableTimeslots());
+
+        model.addAttribute("pageTitle", "Available Timeslots");
+
+        return "customer-book-appoint";
     }
 
 }

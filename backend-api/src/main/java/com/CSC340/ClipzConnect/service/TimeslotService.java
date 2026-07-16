@@ -56,4 +56,8 @@ public class TimeslotService {
     public void deleteTimeslot(Long timeslotId) {
         timeSlotRepository.deleteById(timeslotId);
     }
+
+    public List<Timeslot> getAvailableTimeslots(){
+        return timeSlotRepository.findByIsAvailable(true);
+    }
 }

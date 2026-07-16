@@ -12,4 +12,6 @@ public interface  TimeSlotRepository extends JpaRepository<Timeslot, Long> {
     List<Timeslot> findByBarberId(Long barberId);
 
     List<Timeslot> findAvailableByBarberId(Long barberId);
+
+    List<Timeslot> findByIsAvailable(Boolean isAvailable);
 }
