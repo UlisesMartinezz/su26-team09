@@ -94,7 +94,7 @@ public class CustomerUIController {
 
         model.addAttribute("customer", customer.get());
 
-        return "dashboard";
+        return "customer-dashboard";
     }
 
     @PostMapping("/login")
