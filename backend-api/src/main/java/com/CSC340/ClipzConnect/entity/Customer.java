@@ -27,7 +27,10 @@ public class Customer {
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String firstName;
+
+    @Column(nullable = false)
+    private String lastName;
 
     @Column(nullable = false, unique = true)
     private String email;
@@ -44,14 +47,18 @@ public class Customer {
     @Column(nullable = false)
     private String location;
 
-    public Customer(String name, String email, String phoneNumber, String password, String accountStatus, 
-        String location){
-            this.name = name;
+    private String thumbnailUrl;
+
+    public Customer(String firstName, String lastName, String email, String phoneNumber, String password, String accountStatus, 
+        String location, String thumbnailUrl){
+            this.firstName = firstName;
+            this.lastName = lastName;
             this.email = email;
             this.phoneNumber = phoneNumber;
             this.password = password;
             this.accountStatus = accountStatus;
             this.location = location;
+            this.thumbnailUrl = thumbnailUrl;
     }
 
     @OneToMany(mappedBy = "customer")
