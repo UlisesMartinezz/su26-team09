@@ -1,95 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ClipzConnect - Find a Barber</title>
+    <title>Book Appointment</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
+<nav class="navbar">
+    <div class="nav-left">
+        <img src="/images/ClipzConnectLogo.jpg.jpeg" class="logo">
+        <h2>ClipzConnect</h2>
+    </div>
 
-        <div class="nav-left">
-            <img src="/images/ClipzConnectLogo.jpg.jpeg" class="logo" alt="Logo">
-            <h2>ClipzConnect</h2>
-        </div>
+    <div class="nav-right">
+        <a href="/customer/dashboard/${customer.id}">
+            Dashboard
+        </a>
+    </div>
+</nav>
 
-        <div class="nav-right">
-            <a href="/customer/dashboard/${customer.id}">Dashboard</a>
-            <a href="/index">Log Out</a>
-            <img src="/images/profileIcon.jpg" class="profile-icon" alt="Profile">
-        </div>
-    </nav>
+<section class="section">
 
+    <h1>Book Appointment</h1>
 
-    <!-- SEARCH SECTION -->
+    <div class="barber-card">
 
-    <section class="section">
+        <img src="/images/${barber.thumbnailUrl}" alt="Barber">
 
-        <h1>Find a Barber</h1>
+        <h2>${barber.firstName} ${barber.lastName}</h2>
 
-        <form action="/barbers/search" method="get">
+        <p>${barber.location}</p>
 
-            <label>Location</label>
-            <input type="text" name="location" placeholder="Enter location">
+        <p>${barber.bio}</p>
 
-            <label>Service</label>
+    </div>
 
-            <select name="service">
-                <option value="">All Services</option>
+    <form action="/customer/${customer.id}/book" method="post">
 
-                <option value="Fade">Fade</option>
+        <input type="hidden"
+               name="customer.id"
+               value="${customer.id}">
 
-                <option value="Haircut">Haircut</option>
+        <label>Select Service</label>
 
-                <option value="Beard Trim">Beard Trim</option>
+        <select name="barberService.id">
 
-                <option value="Color">Hair Color</option>
-            </select>
+            <#list services as service>
 
-            <button type="submit">Search</button>
-        </form>
-    </section>
+                <option value="${service.id}">
+                    ${service.name} -
+                    $${service.price}
+                </option>
 
-    <!-- BARBER RESULTS -->
-    <section class="section">
+            </#list>
 
-        <h2>Available Barbers</h2>
+        </select>
 
-        <div class="barber-grid">
+        <label>Select Time</label>
 
-            <!-- Example Barber Card -->
-            <div class="barber-card">
-                <img src="/images/barber1.jpg" alt="Barber">
+        <select name="timeslot.id">
 
-                <h3>John Smith</h3>
+            <#list timeslots as timeslot>
 
-                <p>Location: Greensboro</p>
+                <option value="${timeslot.id}">
+                    ${timeslot.startTime}
+                </option>
 
-                <p>Services:Fade, Haircut</p>
+            </#list>
 
-                <a href="/booking/barber/1">Book Appointment</a>
-            </div>
+        </select>
 
-            <div class="barber-card">
-                <img src="/images/barber2.jpg" alt="Barber">
+        <label>Notes</label>
 
-                <h3>Mike Johnson</h3>
+        <textarea
+            name="notes"
+            rows="4"
+            placeholder="Any requests?"></textarea>
 
-                <p>Location: High Point</p>
+        <input type="hidden"
+               name="status"
+               value="Scheduled">
 
-                <p>Services: Beard Trim</p>
+        <input type="hidden"
+               name="location"
+               value="${barber.location}">
 
-                <a href="/booking/barber/2">Book Appointment</a>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <p>&copy; 2026 ClipzConnect. All rights reserved.</p>
-    </footer>
+        <br><br>
+
+        <button type="submit">
+            Book Appointment
+        </button>
+
+    </form>
+
+</section>
+
 </body>
 </html>

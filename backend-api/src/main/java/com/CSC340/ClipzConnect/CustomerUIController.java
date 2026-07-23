@@ -15,6 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 import com.CSC340.ClipzConnect.entity.Customer;
 import com.CSC340.ClipzConnect.entity.HairAppointment;
 import com.CSC340.ClipzConnect.entity.Review;
+import com.CSC340.ClipzConnect.service.BarberAccountService;
+import com.CSC340.ClipzConnect.service.BarberServiceManager;
 import com.CSC340.ClipzConnect.service.CustomerService;
 import com.CSC340.ClipzConnect.service.HairAppointmentService;
 import com.CSC340.ClipzConnect.service.ReviewService;
@@ -33,12 +35,18 @@ public class CustomerUIController {
 
     private final HairAppointmentService hairAppointmentService;
 
+    private final BarberAccountService barberAccountService;
+
+    private final BarberServiceManager barberServiceManager;
+
     public CustomerUIController(CustomerService customerService, TimeslotService timeslotService, ReviewService reviewService
-        , HairAppointmentService hairAppointmentService){
+        , HairAppointmentService hairAppointmentService, BarberAccountService barberAccountService, BarberServiceManager barberServiceManager){
         this.customerService = customerService;
         this.timeslotService = timeslotService;
         this.reviewService = reviewService;
         this.hairAppointmentService = hairAppointmentService;
+        this.barberAccountService = barberAccountService;
+        this.barberServiceManager = barberServiceManager;
     }
 
     //Customer User Story 1 Create/modify customer profile - Register as a customer
@@ -171,8 +179,8 @@ public class CustomerUIController {
     //Customer User Story 5 Write Reviews - Leave feedback on their experience
     //Customer appointment history page
     @GetMapping("/appointment/{customerId}")
-    public String getAppointmentHistory(@PathVariable Long id, Model model){
-        List<HairAppointment> history = hairAppointmentService.getAppointmentsByCustomerId(id);
+    public String getAppointmentHistory(@PathVariable Long customerId, Model model){
+        List<HairAppointment> history = hairAppointmentService.getAppointmentsByCustomerId(customerId);
 
         model.addAttribute("appointments", history);
         
@@ -181,10 +189,10 @@ public class CustomerUIController {
 
     //Customer leave a review
     @PostMapping("/review/{customerId}")
-    public String leaveReview(@PathVariable Long id, Review review, Model model){
+    public String leaveReview(@PathVariable Long customerId, Review review, Model model){
         reviewService.createReview(review);
 
-        model.addAttribute("review", reviewService.getReviewsByCustomerId(id));
+        model.addAttribute("review", reviewService.getReviewsByCustomerId(customerId));
 
         return "customer-appoint-history";
     }
@@ -215,5 +223,41 @@ public class CustomerUIController {
     }
 
     //Customer User Story 3 Book appointments - Schedule an appointment with a selected barber
-    
+    // Book appointment
+    @PostMapping("/{customerId}/book")
+    public String bookAppointment(@PathVariable Long customerId, HairAppointment appointment) {
+
+        hairAppointmentService.createHairAppointment(appointment);
+
+        timeslotService.assignTimeslotToSession(appointment.getTimeslot().getId());
+
+        return "redirect:/customer/appointment/" + customerId;
+    }
+
+    @GetMapping("/appointment/book/{customerId}")
+    public String getBookAppointPage(@PathVariable Long customerId, Model model) {
+
+        model.addAttribute("customer", customerService.getCustomerById(customerId).orElse(null));
+
+        model.addAttribute("barbers", barberAccountService.getAllBarbers());
+
+        return "customer-browse-barbers";
+    }
+
+    @GetMapping("/appointment/book/{customerId}/{barberId}")
+    public String showBookingPage(@PathVariable Long customerId, @PathVariable Long barberId, Model model) {
+
+        model.addAttribute("customer", customerService.getCustomerById(customerId).orElse(null));
+
+        model.addAttribute("barber", barberAccountService.getBarberById(barberId).orElse(null));
+
+        model.addAttribute("services", barberServiceManager.getServicesByBarberId(barberId));
+
+        model.addAttribute("timeslots", timeslotService.getAvailableTimeslotsByBarberId(barberId));
+
+        model.addAttribute("appointment", new HairAppointment());
+
+        return "customer-book-appointment";
+    }
+
 }

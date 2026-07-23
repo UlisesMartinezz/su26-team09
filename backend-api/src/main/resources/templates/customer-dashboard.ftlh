@@ -40,14 +40,14 @@
             </div>
 
             <div class="stat-card">
-                <a href="customerAppointHis.html" class="card-link">
+                <a href="/customer/appointment/{customer.id}" class="card-link">
                     <h3>Appointment History</h3>
                     <p>View past cuts and barber visits</p>
                 </a>
             </div>
 
             <div class="stat-card">
-                <a href="customerBookAppoint.html" class="card-link">
+                <a href="/customer/appointment/book/{customer.id}" class="card-link">
                     <h3>Book Appointment</h3>
                 <p>Schedule your next haircut with a barber</p>
                 </a>
