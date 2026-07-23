@@ -81,7 +81,7 @@ public class CustomerService {
         return false;
     }
 
-    public Customer findByEmail(String email) {
+    public Optional<Customer> findByEmail(String email) {
         return customerRepository.findByEmail(email);
     }
 
