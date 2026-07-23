@@ -65,6 +65,11 @@ public class CustomerUIController {
         return "customer-profile";
     }
 
+    @GetMapping("/index")
+    public String index(){
+        return "index";
+    }
+
     @PostMapping("/update-basic/{id}")
     public String updateBasicInfo(@PathVariable Long id, Customer updatedCustomer, MultipartFile thumbnailFile){
         Customer customer = customerService.updateCustomer(id, updatedCustomer);
@@ -118,6 +123,10 @@ public class CustomerUIController {
         }
 
         model.addAttribute("customer", customer.get());
+
+        List<HairAppointment> appointments = hairAppointmentService.getAppointmentsByCustomerId(id);
+
+        model.addAttribute("appointments", appointments);
 
         return "customer-dashboard";
     }
@@ -180,10 +189,18 @@ public class CustomerUIController {
     //Customer appointment history page
     @GetMapping("/appointment/{customerId}")
     public String getAppointmentHistory(@PathVariable Long customerId, Model model){
-        List<HairAppointment> history = hairAppointmentService.getAppointmentsByCustomerId(customerId);
 
+        Optional<Customer> customer = customerService.getCustomerById(customerId);
+
+        if(customer.isEmpty()){
+            return "error";
+        }
+
+        List<HairAppointment> history =hairAppointmentService.getAppointmentsByCustomerId(customerId);
+
+        model.addAttribute("customer", customer.get());
         model.addAttribute("appointments", history);
-        
+
         return "customer-appoint-history";
     }
 
@@ -216,7 +233,7 @@ public class CustomerUIController {
         boolean isDeleted = reviewService.deleteReview(reviewId);
 
         if(isDeleted){
-            return "redirect:/customer/customer-appoint-history";
+            return "redirect:/customer/appointment";
         }
 
         return "redirect:/customer/customer-appoint-history?error=true";
