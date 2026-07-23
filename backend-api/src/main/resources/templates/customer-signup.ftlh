@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>ClipzConnect - Sign Up</title>
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="/styles.css">
     </head>
 
     <body>
@@ -13,14 +13,14 @@
     <nav class="navbar">
 
         <div class="nav-left">
-            <img src="images/ClipzConnectLogo.jpg.jpeg" class="logo" alt="Logo">
+            <img src="/images/ClipzConnectLogo.jpg.jpeg" class="logo" alt="Logo">
             <h2>ClipzConnect</h2>
         </div>
 
         <div class="nav-right">
-            <a href="index.html">Home</a>
-            <a href="login.html">Sign In</a>
-            <img src="images/profileIcon.jpg" class="profile-icon" alt="Profile">
+            <a href="/index">Home</a>
+            <a href="/customer/login">Sign In</a>
+            <img src="/images/profileIcon.jpg" class="profile-icon" alt="Profile">
         </div>
 
     </nav>
@@ -56,15 +56,17 @@
 
             </div>
 
-            <form id="signupForm">
+            <form id="signupForm" action="/customer/save" method="post">
 
-                <input type="text" placeholder="First Name">
+                <input type="text" name="firstName" placeholder="First Name" required>
 
-                <input type="text" placeholder="Last Name">
+                <input type="text" name="lastName" placeholder="Last Name" required>
 
-                <input type="email" placeholder="Email Address">
+                <input type="email" name="email" placeholder="Email Address" required>
 
-                <input type="tel" placeholder="Phone Number">
+                <input type="tel" name="phoneNumber" placeholder="Phone Number" required>
+
+                <input type="text" name="location" placeholder="Location" required>
 
                 <!-- Barber Fields -->
 
@@ -80,9 +82,11 @@
 
                 </div>
 
-                <input type="password" placeholder="Password">
+                <input type="password" name="password" placeholder="Password" required>
 
-                <input type="password" placeholder="Confirm Password">
+                <input type="password" placeholder="Confirm Password" required>
+
+                <input type="hidden" name="accountStatus" value="ACTIVE">
 
                 <button type="submit" class="create-account-btn">
                     Create Account
@@ -90,7 +94,7 @@
 
                 <p class="signin-text">
                     Already have an account?
-                    <a href="login.html" class="signin-link">Sign In</a>
+                    <a href="/customer/login" class="signin-link">Sign In</a>
                 </p>
 
             </form>
@@ -139,15 +143,16 @@
 
         // Handle form submission
         signupForm.addEventListener("submit", function(event) {
-            event.preventDefault(); // Stop the form from submitting
 
             if (customer.checked) {
-                window.location.href = "customer-prototype/customerDashBoard.html";
-            } else {
+                return true;
+            } 
+            if (barber.checked) {
+                event.preventDefault();
                 window.location.href = "provider-prototype/providerDashboard.html";
             }
         });
-        </script>
+    </script>
 
     </body>
 </html>
