@@ -1,5 +1,6 @@
 package com.CSC340.ClipzConnect;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.stereotype.Controller;
@@ -12,7 +13,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.CSC340.ClipzConnect.entity.Customer;
+import com.CSC340.ClipzConnect.entity.HairAppointment;
+import com.CSC340.ClipzConnect.entity.Review;
 import com.CSC340.ClipzConnect.service.CustomerService;
+import com.CSC340.ClipzConnect.service.HairAppointmentService;
+import com.CSC340.ClipzConnect.service.ReviewService;
 import com.CSC340.ClipzConnect.service.TimeslotService;
 
 //UIController
@@ -24,11 +29,19 @@ public class CustomerUIController {
 
     private final TimeslotService timeslotService;
 
-    public CustomerUIController(CustomerService customerService, TimeslotService timeslotService){
+    private final ReviewService reviewService;
+
+    private final HairAppointmentService hairAppointmentService;
+
+    public CustomerUIController(CustomerService customerService, TimeslotService timeslotService, ReviewService reviewService
+        , HairAppointmentService hairAppointmentService){
         this.customerService = customerService;
         this.timeslotService = timeslotService;
+        this.reviewService = reviewService;
+        this.hairAppointmentService = hairAppointmentService;
     }
 
+    //Customer User Story 1 Create/modify customer profile - Register as a customer
     @GetMapping("/profile/{id}")
     public String showProfile(@PathVariable Long id, Model model) {
 
@@ -142,10 +155,8 @@ public class CustomerUIController {
         }
         return "redirect:/index/" + id + "?error=true";
     }
-
-
+    //Customer User Story 4 Search/filter through available barbers - Browse suitable barbers through filters
     //Customer timeslot controller
-
     @GetMapping("/available")
     public String filterByAvailableTimeslots(Model model) {
         model.addAttribute("timeSlots", timeslotService.getAvailableTimeslots());
@@ -155,4 +166,54 @@ public class CustomerUIController {
         return "customer-book-appoint";
     }
 
+
+
+    //Customer User Story 5 Write Reviews - Leave feedback on their experience
+    //Customer appointment history page
+    @GetMapping("/appointment/{customerId}")
+    public String getAppointmentHistory(@PathVariable Long id, Model model){
+        List<HairAppointment> history = hairAppointmentService.getAppointmentsByCustomerId(id);
+
+        model.addAttribute("appointments", history);
+        
+        return "customer-appoint-history";
+    }
+
+    //Customer leave a review
+    @PostMapping("/review/{customerId}")
+    public String leaveReview(@PathVariable Long id, Review review, Model model){
+        reviewService.createReview(review);
+
+        model.addAttribute("review", reviewService.getReviewsByCustomerId(id));
+
+        return "customer-appoint-history";
+    }
+
+    //Customer update a review
+    @PostMapping("/review/update/{customerId}")
+    public String updateReview(@PathVariable Long customerId, Review updatedReview, Model model){
+        Review review = reviewService.getReviewById(updatedReview.getId());
+        
+        if(review != null){
+            reviewService.updateReview(updatedReview.getId(), updatedReview);
+            return "redirect:/customer/customer-appoint-history/" + customerId;
+        }
+
+        return "redirect:/customer/" + customerId + "?error=true";
+    }
+
+    //Customer delete a review
+    @GetMapping("/review/delete/{reviewId}")
+    public String deleteReview(@PathVariable Long reviewId){
+        boolean isDeleted = reviewService.deleteReview(reviewId);
+
+        if(isDeleted){
+            return "redirect:/customer/customer-appoint-history";
+        }
+
+        return "redirect:/customer/customer-appoint-history?error=true";
+    }
+
+    //Customer User Story 3 Book appointments - Schedule an appointment with a selected barber
+    
 }

@@ -49,7 +49,11 @@ public class ReviewService {
         return null;
     }
 
-    public void deleteReview(Long reviewId) {
-        reviewRepository.deleteById(reviewId);
+    public boolean deleteReview(Long reviewId) {
+        if(reviewRepository.existsById(reviewId)){
+            reviewRepository.deleteById(reviewId);
+            return true;
+        }
+        return false;
     }
 }
