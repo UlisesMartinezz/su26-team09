@@ -36,6 +36,10 @@ public class BarberUIController {
     }
 
     //LOGIN / REGISTER 
+    @GetMapping("")
+    public String barberRoot() {
+        return "redirect:/barber/login";
+    }
 
     @GetMapping("/login")
     public String showLoginPage() {
@@ -98,7 +102,7 @@ public class BarberUIController {
     @GetMapping("/delete/{id}")
     public String deleteBarber(@PathVariable Long id) {
         barberAccountService.deleteBarber(id);
-        return "redirect:/index";
+        return "redirect:/customer/index";
     }
 
     // REVIEWS 
@@ -214,5 +218,10 @@ public class BarberUIController {
                                  @PathVariable Long barberId) {
         timeslotService.deleteTimeslot(timeslotId);
         return "redirect:/barber/appointments/" + barberId;
+    }
+
+    @GetMapping("/index")
+    public String getHomePage(){
+        return "index";
     }
 }

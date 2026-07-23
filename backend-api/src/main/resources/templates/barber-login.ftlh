@@ -11,8 +11,8 @@
 <nav class="provider-nav">
     <a class="brand" href="/index">✂ ClipzConnect</a>
     <span class="spacer"></span>
-    <a href="/index">Home</a>
-    <a href="/login">Customer Login</a>
+    <a href="/barber/index">Home</a>
+    <a href="/barber/login">Customer Login</a>
 </nav>
 
 <div class="page-wrap">
