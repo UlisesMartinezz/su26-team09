@@ -37,8 +37,7 @@ public class BarberServiceItemController {
     }
 
     @PostMapping("/barber/{barberId}")
-    public ResponseEntity<BarberService> addService(@PathVariable Long barberId,
-                                                    @RequestBody BarberService service) {
+    public ResponseEntity<BarberService> addService(@PathVariable Long barberId, @RequestBody BarberService service) {
         BarberService created = barberServiceManager.addService(barberId, service);
         if (created == null) {
             return ResponseEntity.notFound().build();
@@ -47,8 +46,7 @@ public class BarberServiceItemController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<BarberService> updateService(@PathVariable Long id,
-                                                       @RequestBody BarberService updatedService) {
+    public ResponseEntity<BarberService> updateService(@PathVariable Long id, @RequestBody BarberService updatedService) {
         try {
             BarberService service = barberServiceManager.updateService(id, updatedService);
             return ResponseEntity.ok(service);

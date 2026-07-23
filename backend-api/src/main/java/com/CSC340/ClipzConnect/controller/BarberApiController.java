@@ -41,8 +41,7 @@ public class BarberApiController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Barber> updateBarber(@PathVariable Long id,
-                                               @RequestBody Barber updatedBarber) {
+    public ResponseEntity<Barber> updateBarber(@PathVariable Long id, @RequestBody Barber updatedBarber) {
         try {
             Barber barber = barberAccountService.updateBarber(id, updatedBarber);
             return ResponseEntity.ok(barber);

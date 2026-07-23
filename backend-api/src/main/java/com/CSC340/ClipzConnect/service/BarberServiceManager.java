@@ -15,8 +15,7 @@ public class BarberServiceManager {
     private final BarberServiceRepository serviceRepository;
     private final BarberRepository barberRepository;
 
-    public BarberServiceManager(BarberServiceRepository serviceRepository,
-                                BarberRepository barberRepository) {
+    public BarberServiceManager(BarberServiceRepository serviceRepository, BarberRepository barberRepository) {
         this.serviceRepository = serviceRepository;
         this.barberRepository  = barberRepository;
     }

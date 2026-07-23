@@ -25,14 +25,11 @@ public class BarberUIController {
     private final ReviewService        reviewService;
     private final TimeslotService      timeslotService;
 
-    public BarberUIController(BarberAccountService barberAccountService,
-                              BarberServiceManager barberServiceManager,
-                              ReviewService        reviewService,
-                              TimeslotService      timeslotService) {
-        this.barberAccountService = barberAccountService;
+    public BarberUIController(BarberAccountService barberAccountService, BarberServiceManager barberServiceManager,ReviewService reviewService, TimeslotService timeslotService) {
+        this.barberAccountService= barberAccountService;
         this.barberServiceManager = barberServiceManager;
-        this.reviewService        = reviewService;
-        this.timeslotService      = timeslotService;
+        this.reviewService= reviewService;
+        this.timeslotService= timeslotService;
     }
 
     //LOGIN / REGISTER 
@@ -47,9 +44,7 @@ public class BarberUIController {
     }
 
     @PostMapping("/login")
-    public String login(@RequestParam String email,
-                        @RequestParam String password,
-                        Model model) {
+    public String login(@RequestParam String email, @RequestParam String password, Model model) {
         Optional<Barber> barber = barberAccountService.checkLogin(email, password);
         if (barber.isPresent()) {
             return "redirect:/barber/dashboard/" + barber.get().getId();
@@ -117,9 +112,8 @@ public class BarberUIController {
     }
 
     @PostMapping("/reviews/{reviewId}/reply/{barberId}")
-    public String replyToReview(@PathVariable Long reviewId,
-                                @PathVariable Long barberId,
-                                @RequestParam String replyText) {
+    public String replyToReview(@PathVariable Long reviewId, @PathVariable Long barberId,
+    @RequestParam String replyText) {
         Review review = reviewService.getReviewById(reviewId);
         if (review != null) {
             review.setReplyText(replyText);
@@ -129,8 +123,7 @@ public class BarberUIController {
     }
 
     @GetMapping("/reviews/{reviewId}/delete/{barberId}")
-    public String deleteReview(@PathVariable Long reviewId,
-                               @PathVariable Long barberId) {
+    public String deleteReview(@PathVariable Long reviewId, @PathVariable Long barberId) {
         reviewService.deleteReview(reviewId);
         return "redirect:/barber/reviews/" + barberId;
     }
@@ -147,11 +140,7 @@ public class BarberUIController {
     }
 
     @PostMapping("/services/add/{id}")
-    public String addService(@PathVariable Long id,
-                             @RequestParam String  name,
-                             @RequestParam String  description,
-                             @RequestParam Double  price,
-                             @RequestParam(required = false) Integer durationMinutes) {
+    public String addService(@PathVariable Long id, @RequestParam String  name, @RequestParam String  description, @RequestParam Double  price, @RequestParam(required = false) Integer durationMinutes) {
         BarberService service = new BarberService();
         service.setName(name);
         service.setDescription(description);
@@ -162,12 +151,9 @@ public class BarberUIController {
     }
 
     @PostMapping("/services/update/{serviceId}/{barberId}")
-    public String updateService(@PathVariable Long   serviceId,
-                                @PathVariable Long   barberId,
-                                @RequestParam String  name,
-                                @RequestParam String  description,
-                                @RequestParam Double  price,
-                                @RequestParam(required = false) Integer durationMinutes) {
+    public String updateService(@PathVariable Long serviceId, 
+        @PathVariable Long barberId, 
+        @RequestParam String  name, @RequestParam String  description, @RequestParam Double price, @RequestParam(required = false) Integer durationMinutes) {
         BarberService updated = new BarberService();
         updated.setName(name);
         updated.setDescription(description);
@@ -178,8 +164,7 @@ public class BarberUIController {
     }
 
     @GetMapping("/services/delete/{serviceId}/{barberId}")
-    public String deleteService(@PathVariable Long serviceId,
-                                @PathVariable Long barberId) {
+    public String deleteService(@PathVariable Long serviceId, @PathVariable Long barberId) {
         barberServiceManager.deleteService(serviceId);
         return "redirect:/barber/services/" + barberId;
     }
@@ -196,10 +181,9 @@ public class BarberUIController {
     }
 
     @PostMapping("/timeslots/add/{id}")
-    public String addTimeslot(
-            @PathVariable Long id,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime startTime,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime endTime) {
+    public String addTimeslot( @PathVariable Long id,
+    @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime startTime,
+    @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm") LocalDateTime endTime) {
 
         Optional<Barber> barber = barberAccountService.getBarberById(id);
         if (barber.isEmpty()) return "error";
@@ -214,8 +198,7 @@ public class BarberUIController {
     }
 
     @GetMapping("/timeslots/delete/{timeslotId}/{barberId}")
-    public String deleteTimeslot(@PathVariable Long timeslotId,
-                                 @PathVariable Long barberId) {
+    public String deleteTimeslot(@PathVariable Long timeslotId, @PathVariable Long barberId) {
         timeslotService.deleteTimeslot(timeslotId);
         return "redirect:/barber/appointments/" + barberId;
     }
