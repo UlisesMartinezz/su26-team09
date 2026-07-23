@@ -44,7 +44,6 @@ public class CustomerService {
             customer.setFirstName(updatedCustomer.getFirstName());
             customer.setLastName(updatedCustomer.getLastName());
             customer.setEmail(updatedCustomer.getEmail());
-            customer.setAccountStatus(updatedCustomer.getAccountStatus());
             return customerRepository.save(customer);
         } else {
             throw new RuntimeException("Customer not found with id: " + id);

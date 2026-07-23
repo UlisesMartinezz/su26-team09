@@ -67,7 +67,7 @@
 
             <p>${barber.bio}</p>
 
-            <a href="/customer/${customer.id}/book/${barber.id}">
+            <a href="/appointment/book/{customerId}/{barberId}">
                 Book Appointment
             </a>
 
