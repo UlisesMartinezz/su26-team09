@@ -2,6 +2,7 @@ package com.CSC340.ClipzConnect.controller;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,11 +36,12 @@ public class CustomerApiController {
 
     @GetMapping("/email/{email}")
     public ResponseEntity<Customer> getCustomerByEmail(@PathVariable String email) {
-        Customer customer = customerService.findByEmail(email);
-        if (customer != null) {
-        return ResponseEntity.ok(customer);
+        Optional<Customer> customer = customerService.findByEmail(email);
+
+        if (customer.isPresent()) {
+            return ResponseEntity.ok(customer.get());
         } else {
-        return ResponseEntity.notFound().build();
+            return ResponseEntity.notFound().build();
         }
     }
 
