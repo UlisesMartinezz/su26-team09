@@ -219,8 +219,9 @@ Example request body:
 
 ### 3.2 Barber Endpoints
 
-Waiting team member UlisesMartinezz response
-
+### Get all barbers
+``` http
+```
 ---
 
 ### 3.3 Barber Service Endpoints
