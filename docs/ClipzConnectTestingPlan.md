@@ -1,13 +1,13 @@
 **Project Name:** ClipzConnect \
 **Version:** 1.0 \
 **Date:** 2026-07-15 \
-**Purpose:** Test plan for the FitMatch application
+**Purpose:** Test plan for the ClipzConnect application
 
 ## Actors
 
-- Provider P: Trainer, Coach, or Fitness Professional
-- Customer C: User seeking fitness services
-- Service S: Training Service offered by a Provider
+- Provider P: Barber, provide haircuts
+- Customer C: User seeking hair services
+- Service S: Barber Service offered by a Provider
 
 ## Use Cases
 
@@ -24,22 +24,21 @@
 2. C1 edits their profile to add preferences.
 3. C1 exits.
 
-#### 3. Customer: US‑CUST‑003 — Book a training session, US‑CUST‑004 — Write a review after a session
+#### 3. Customer: US‑CUST‑003 — Book a hair appointment, US‑CUST‑004 — Write a review after an appoinment
 
 1. Customer C2 logs in for the first time and creates a profile.
 2. C2 edits their profile to add preferences.
-3. Customer C2 selects a recommended provider and books a session for service S1 with provider P1 at a specific time.
-4. Customer C2 completes a training session with the provider.
-5. C2 writes a review R1 for the session and submits it.
+4. Customer C2 completes a hair appointment.
+5. C2 writes a review R1 for the appointment and submits it.
 6. The review R1 is saved and visible to other customers.
 
-#### 4. Customer: US‑CUST‑002 — Search for providers
+#### 4. Customer: US‑CUST‑002 — Search for barbers
 
 1. Customer C1 logs in and navigates to the search page.
 2. C1 enters search criteria (e.g., location, service type).
-3. C1 views the list of providers matching the criteria.
-4. C1 selects a provider P1 to view their profile, service S1, and review R1.
-5. C1 books a session with provider P1 for service S1 at a specific time.
+3. C1 views the list of barbers matching the selected filters.
+4. C1 selects a barber P1 to view their profile, service S1, and review R1.
+5. C1 books a hairappointment with barber P1 for service S1 at a specific time.
 
 #### 5. Provider: US-7 - Respond to reviews
 
@@ -101,14 +100,12 @@
 
 ### Usability Requirements
 
-**Scenario U1:** New customer completes registration and books a session within 5 minutes
+**Scenario U1:** New customer completes registration and books a hairappointment within 5 minutes
 
-- **Setup:** New customer participates in hallway testing with a facilitator observing the process.
-- **Steps:**
   1. New customer logs in for the first time and creates a profile.
   2. Customer edits their profile to add preferences.
   3. Customer browses available services and selects one.
-  4. Customer books a session with a provider.
+  4. Customer books a hairappointment with a barber.
   5. Record the time taken from login to booking confirmation.
 - **Expected Outcome:**
   - Time to complete registration and book a session is ≤ 5 minutes.
